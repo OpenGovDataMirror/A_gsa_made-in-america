@@ -1,0 +1,86 @@
+---
+permalink: /urgent-reports/
+layout: page
+title: Urgent Requirement Reports
+description: 'Nonavailability waivers, synopsis of waiver requests, buy American historical waivers on sam.gov,
+nonavailability waiver data.'
+---
+
+<div id="results-container">
+  <app-root> </app-root>
+  <base href="{{ site.baseurl }}/urgent-reports/" />
+  {% asset runtime.js %} {% asset polyfills.js %} {% asset main.js %}
+</div>
+
+<div class="bg-primary-lighter padding-x-6 padding-y-4 radius-md margin-top-5">
+  <div class="margin-bottom-1">
+    {% asset sam-gov-logo.png alt="sam gov mark" %}
+  </div>
+
+  <div
+    class="grid-row flex-row flex-align-end"
+    style="justify-content: space-between"
+  >
+    <div>
+      <h2 class="font-sans-xl text-primary margin-0 line-height-alt-2">
+        Buy American Historical Waivers
+      </h2>
+      <h3 class="text-normal font-sans-lg margin-0">
+        Visit SAM.gov to learn more about Buy American Historical Waivers
+      </h3>
+    </div>
+
+    <a
+      class="usa-button height-5 margin-top-2 margin-right-0"
+      rel="noreferrer"
+      target="_blank"
+      href="https://sam.gov/data-services/Contract%20Opportunities/Buy%20American%20Act?privacy=Public"
+    >
+      View Historical Waivers
+    </a>
+  </div>
+</div>
+
+<div
+  class="tablet:grid-col-12 usa-card usa-card--flag margin-top-5"
+  data-test="waiver-page-content"
+>
+  <div class="usa-card__container radius-sm border-base-lightest">
+    <header class="usa-card__header">
+      <h2
+        class="usa-card__heading font-heading-2xl font-family-sans text-primary-dark"
+      >
+        Jones Act Waivers
+      </h2>
+    </header>
+    <div class="usa-card__media usa-card__img">
+      {% asset us-maritime-administration-seal.svg alt="US Maritime
+      Administration Seal mark" class="padding-3"%}
+    </div>
+    <div class="usa-card__body text-base-darker">
+      <p>
+        The Jones Act requires that cargo and merchandise transported by water
+        between U.S. points is shipped aboard vessels that are U.S.-built,
+        U.S.-citizen owned, and registered in the U.S., which means crewed by
+        Americans. More information about Jones Act nonavailability
+        determinations is available on the
+        <a
+          class="usa-link--external"
+          href="https://www.maritime.dot.gov/ports/domestic-shipping/domestic-shipping"
+          rel="noreferrer"
+          target="_blank"
+        >
+          U.S. Department of Transportation’s (DOT) Maritime Administration
+          website</a
+        >.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="margin-top-4" data-test="waiver-page-content">
+  If you have any questions about waivers from Made in America laws, please
+  reach out to the Made in America Office at
+  <a class="usa-link text-no-underline" href="mailto:MadeInAmerica@omb.eop.gov"
+    >MadeInAmerica@omb.eop.gov</a
+  >.
+</div>

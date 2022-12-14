@@ -1,0 +1,127 @@
+---
+permalink: /waiver-form
+title: Waiver Form
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Waiver Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex nofollow" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/uswds/2.12.1/css/uswds.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/@formio/uswds@2.4.0/dist/uswds.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.form.io/formiojs/formio.full.min.css"
+    />
+    <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uswds/2.12.1/js/uswds.min.js"></script>
+    <script src="https://unpkg.com/@formio/uswds@2.4.0/dist/uswds.js"></script>
+    {% asset premium.css %} {% asset premium.min.js %}
+
+    <style>
+      /* Temporary inline styles for alert message */
+      .usa-site-alert--emergency .usa-alert {
+        background-color: #faf3d1;
+        color: #000;
+      }
+      .usa-site-alert--emergency .usa-alert .usa-link,
+      .usa-site-alert--emergency .usa-alert .usa-link:visited,
+      .usa-site-alert--emergency .usa-alert .usa-link:hover {
+        color: #337ab7;
+      }
+
+      .usa-site-alert--emergency .usa-alert:before {
+        background-color: #000;
+      }
+    </style>
+  </head>
+  <body class="margin-0">
+    <header class="bg-base-lightest">
+      <div class="grid-container">
+        <div class="grid-row grid-gap flex-align-center flex-no-wrap">
+          <div class="grid-col-4 width-card">{% include logo.html %}</div>
+          <div class="grid-col-8">
+            <h1 class="font-sans-lg desktop:margin-bottom-0">
+              Made in America Nonavailability Proposed Waiver
+            </h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="grid-container padding-bottom-8">
+        <section
+          class="usa-site-alert usa-site-alert--emergency margin-y-4"
+          aria-label="Site alert,,,"
+        >
+          <div class="usa-alert">
+            <div class="usa-alert__body">
+              <h3 class="usa-alert__heading">
+                Waiver Form Scheduled Maintenance, November 15, 9 a.m. - 1 p.m.
+                EST
+              </h3>
+              <ul class="usa-list">
+                <li>
+                  Waiver forms will be under scheduled maintenance and cannot be
+                  submitted during this time. Information will be lost.
+                </li>
+                <li>
+                  Following scheduled maintenance, your identity will be
+                  verified through Login.gov. Please go to
+                  <a href="https://login.gov/" class="usa-link">Login.gov</a> to
+                  learn more and
+                  <a
+                    href="https://login.gov/create-an-account/"
+                    class="usa-link"
+                    >create an account</a
+                  >
+                  if you have not already done so. Then, contact OMB to request
+                  access.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <div id="formio"></div>
+      </div>
+    </main>
+
+    <script type="text/javascript">
+      window.onload = function () {
+        Formio.use(premium)
+        Formio.use(uswds)
+        Formio.createForm(
+          document.getElementById('formio'),
+          'https://omb.service.forms.gov/mia-live/madeinamericanonavailabilitywaiverrequest'
+        ).then(function (form, event) {
+          form.on('nextPage', function (event) {
+            window.scrollTo(0, 0)
+          })
+          form.on('prevPage', function (event) {
+            window.scrollTo(0, 0)
+          })
+          // Submit the form
+          form.on('submit', function (submission) {
+            window.location.href = '/waiver-form/success.html'
+          })
+        })
+      }
+    </script>
+  </body>
+</html>

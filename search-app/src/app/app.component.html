@@ -1,0 +1,77 @@
+<div class="grid-container padding-0 margin-bottom-3">
+  <div class="grid-row flex-align-end" style="justify-content: space-between">
+    <div class="tablet:grid-col-6" data-test="waiver-page-content">
+      <h1
+        *ngIf="currentRoute.includes('waivers')"
+        class="margin-0 font-family-sans"
+      >
+        Nonavailability Waivers
+      </h1>
+      <div *ngIf="currentRoute.includes('urgent-reports')">
+        <h1 class="margin-0 font-family-sans margin-bottom-2">
+          Urgent Requirement Reports
+        </h1>
+        <p class="margin-0 text-small">
+          In certain circumstances, an agency may determine that it is required
+          to act more quickly than the Made in America Office (MIAO) waiver
+          review procedures allow. In those circumstances, agencies complete an
+          “Urgent Requirements Report” to inform the MIAO that a Made in America
+          Law has been waived. To promote transparency, the MIAO compiles these
+          reports here.
+        </p>
+      </div>
+
+      <a
+        *ngIf="currentRoute.includes('waivers')"
+        id="waivers-download"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-test="csv-download"
+      >
+        <button class="usa-button usa-button--outline margin-top-2">
+          Download .CSV File
+        </button>
+      </a>
+    </div>
+    <uswds-dropdown
+      [id]="'filtering'"
+      [label]="'Filter By Status'"
+      [options]="filterOptions"
+      (optionChange)="handleSelectedOptions($event)"
+      data-test="filter-select"
+    >
+    </uswds-dropdown>
+    <uswds-dropdown
+      [id]="'sorting'"
+      [label]="'Sort By'"
+      [options]="sortOptions"
+      (optionChange)="handleSelectedOptions($event)"
+      data-test="sort-select"
+    >
+    </uswds-dropdown>
+  </div>
+</div>
+<div
+  *ngIf="currentRoute.includes('waivers')"
+  class="grid-container padding-0 margin-top-5 margin-bottom-3"
+>
+  <search-result [data]="displayedData"></search-result>
+  <usa-pagination
+    [current]="current"
+    [last]="last"
+    *ngIf="last > 1"
+    (movePage)="movePage($event)"
+  ></usa-pagination>
+</div>
+<div
+  *ngIf="currentRoute.includes('urgent-reports')"
+  class="grid-container padding-0 margin-top-5 margin-bottom-3"
+>
+  <search-urgent [data]="displayedData"></search-urgent>
+  <usa-pagination
+    [current]="current"
+    [last]="last"
+    *ngIf="last > 1"
+    (movePage)="movePage($event)"
+  ></usa-pagination>
+</div>

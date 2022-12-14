@@ -1,0 +1,54 @@
+<aside class="usa-layout-docs-sidenav desktop:grid-col-3 padding-bottom-4">
+    {% assign paths = page.url | split:'/' %}
+  <nav>
+    <ul class="usa-sidenav">
+      <li class="usa-sidenav__item">
+        <a href="{{ site.baseurl }}/about/" {% if paths[1] == "about" %}class="usa-current"{% endif %}>Our Website</a>
+
+        {% if paths[1] == "about" %}
+        <ul class="usa-sidenav__sublist">
+          <li class="usa-sidenav__item">
+            <a href="{{ site.baseurl }}/about/" {% if page.url == "/about/" %}class="usa-current"{% endif %}>About This Site</a>
+          </li>
+        </ul>
+        {% endif %}
+      </li>
+      <li class="usa-sidenav__item">
+        <a href="{{ site.baseurl }}/policies/accessibility/" {% if paths[1] == "policies" %}class="usa-current"{% endif %}>Policies</a>
+        {% if paths[1] == "policies" %}
+
+        <ul class="usa-sidenav__sublist">
+          <li class="usa-sidenav__item">
+            <a href="{{ site.baseurl }}/policies/accessibility/" {% if page.url == "/policies/accessibility/" %}class="usa-current"{% endif %}>Accessibility</a>
+          </li>
+          <li class="usa-sidenav__item">
+            <a href="https://www.whitehouse.gov/omb/freedom-of-information-act-foia/" class="usa-link usa-link--external" rel="noreferrer" target="_blank">Freedom of Information Act</a>
+          </li>
+          <li class="usa-sidenav__item">
+            <a href="{{ site.baseurl }}/policies/privacy/" {% if page.url == "/policies/privacy/" %}class="usa-current"{% endif %}>Privacy</a>
+          </li>
+          <li class="usa-sidenav__item">
+            <a href="{{ site.baseurl }}/policies/website-policy/" {% if page.url == "/policies/website-policy/" %}class="usa-current"{% endif %}>Website Policy</a>
+          </li>
+        </ul>
+        {% endif %}
+    </li>
+      <li class="usa-sidenav__item">
+        <a href="{{ site.baseurl }}/customer-service/support/" {% if paths[1] == "customer-service" %}class="usa-current"{% endif %}>Customer Service</a>
+        {% if paths[1] == "customer-service" %}
+        <ul class="usa-sidenav__sublist">
+          <li class="usa-sidenav__item">
+            <a href="{{ site.baseurl }}/customer-service/support/" {% if page.url == "/customer-service/support/" %}class="usa-current"{% endif %}>Government Customer Support</a>
+          </li>
+          <li class="usa-sidenav__item">
+            <a href="{{ site.baseurl }}/customer-service/resources/" {% if page.url == "/customer-service/resources/" %}class="usa-current"{% endif %}>External Resources</a>
+          </li>
+          <li class="usa-sidenav__item">
+            <a href="{{ site.baseurl }}/customer-service/contact/" {% if page.url == "/customer-service/contact/" %}class="usa-current"{% endif %}>Contact</a>
+          </li>
+        </ul>
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+</aside>
